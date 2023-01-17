@@ -6,7 +6,7 @@ import { VehicleData } from "../vehicle/vehicle.interface";
 import { TripStatus } from "./trip-status.enum";
 
 export interface TripData {
-  status: TripStatus
+  status: TripStatus;
   start_location: Location;
   end_location: Location;
   payment_method: string;
