@@ -1,10 +1,10 @@
-# Getting Started
+## Getting Started
 
-## Prerequisites
+### Prerequisites
 
 * [Download and install Node.js](https://nodejs.org/en/download/)
 
-## Quick Start
+### Quick Start
 
 1. Install dependencies:
    ```console
@@ -22,79 +22,79 @@
    Listening on port: 3031
    ```
 
-# API
+## API
 
-## Get a trip
+### Get a trip
 
-### Request
+#### Request
 
 `GET /trips/:id`
 
     curl http://localhost:3031/v1/trips/pZEi7EbiT8 -i
 
-### Response
+#### Response
 
       HTTP/1.1 200 OK
 
       {"id":"pZEi7EbiT8","status":"in_progress","start_location":{"latitude":33.214,"longitude":-96.614,"address":{"line1":"449 Flora St.","city":"Dallas","state":"TX","postal_code":"75201"}},"end_location":{"latitude":32.89,"longitude":-97.04,"address":{"line1":"DFW International Airport - Terminal E","city":"Irving","state":"TX","postal_code":"75261"}},"payment_method":"Amex01","driver":{"name":"Steph","image_url":"","about":"Steph Festiculma is a graduate of Parsons New School in New York and \n      fluent in Portugeuse, Spanish, and English. Steph has been driving with Alto \n      since 2018.","phone":"+15555555555"},"passengers":[],"vehicle":{"name":"Alto 09","year":"2019","make":"Volkswagen","model":"Atlas","color":"Pure White"},"vibe":{"id":"p2odjFf480","name":"Vaporwave Beats"}}
 
-## Update a trip
+### Update a trip
 
-### Request
+#### Request
 
 `PATCH /trips/:id`
 
     curl -X PATCH -H 'Content-Type: application/json' -d '{"vibe": {"id": "p2odjFf480", "name": "Classic Rock" }}' http://localhost:3031/v1/trips/pZEi7EbiT8 -i
 
-### Response
+#### Response
 
       HTTP/1.1 200 OK
 
       {"id":"pZEi7EbiT8","status":"in_progress","start_location":{"latitude":33.214,"longitude":-96.614,"address":{"line1":"449 Flora St.","city":"Dallas","state":"TX","postal_code":"75201"}},"end_location":{"latitude":32.89,"longitude":-97.04,"address":{"line1":"DFW International Airport - Terminal E","city":"Irving","state":"TX","postal_code":"75261"}},"payment_method":"Amex01","driver":{"name":"Steph","image_url":"","about":"Steph Festiculma is a graduate of Parsons New School in New York and \n      fluent in Portugeuse, Spanish, and English. Steph has been driving with Alto \n      since 2018.","phone":"+15555555555"},"passengers":[],"vehicle":{"name":"Alto 09","year":"2019","make":"Volkswagen","model":"Atlas","color":"Pure White"},"vibe":{"id":"p2odjFf480","name":"Classic Rock"}}
 
-## Get estimated trip duration
+### Get estimated trip duration
 
-### Request
+#### Request
 
 `GET /estimates/duration`
 
-### Params
+#### Params
 `?start_latitude=33.214&start_longitude=-96.614&end_latitude=32.89&end_longitude=-97.04`
 
     curl http://localhost:3031/v1/estimates/duration?start_latitude=33.214&start_longitude=-96.614&end_latitude=32.89&end_longitude=-97.04 -i
 
-### Response
+#### Response
 
       HTTP/1.1 200 OK
       
       {"duration":{"text":"39 mins","value":2352}}
 
-## Get estimated fare
+### Get estimated fare
 
-### Request
+#### Request
 
 `GET /estimates/fare`
 
-### Params
+#### Params
 `?start_latitude=33.214&start_longitude=-96.614&end_latitude=32.89&end_longitude=-97.04`
 
     curl http://localhost:3031/v1/estimates/fare?start_latitude=33.214&start_longitude=-96.614&end_latitude=32.89&end_longitude=-97.04 -i
 
-### Response
+#### Response
 
       HTTP/1.1 200 OK
       
       {"fare":{"low":5574,"high":6574}}
 
-## Get available vehicle vibes
+### Get available vehicle vibes
 
-### Request
+#### Request
 
 `GET /vibes`
 
       curl http://localhost:3031/v1/vibes -i 
 
-### Response
+#### Response
 
       HTTP/1.1 200 OK
 
