@@ -6,7 +6,7 @@ import { Location } from "../common/interfaces/location.interface";
 const mapsClient = new Client({});
 
 /**
- * Data in memory
+ * Data in memory.
  */
 let trips: {
   [key: string]: Trip;
@@ -53,6 +53,7 @@ let trips: {
       color: "Pure White"
     },
     vibe: {
+      id: "p2odjFf480",
       name: "Vaporwave Beats"
     }
   }

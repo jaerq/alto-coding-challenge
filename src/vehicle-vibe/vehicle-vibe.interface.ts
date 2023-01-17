@@ -3,5 +3,5 @@ export interface VehicleVibeData {
 }
 
 export interface VehicleVibe extends VehicleVibeData {
-  id: number;
+  id: string;
 }

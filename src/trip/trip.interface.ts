@@ -1,7 +1,7 @@
 import { Location } from "../common/interfaces/location.interface";
 import { DriverData } from "../driver/driver.interface";
 import { PassengerData } from "../passenger/passenger.interface";
-import { VehicleVibeData } from "../vehicle-vibe/vehicle-vibe.interface";
+import { VehicleVibe } from "../vehicle-vibe/vehicle-vibe.interface";
 import { VehicleData } from "../vehicle/vehicle.interface";
 import { TripStatus } from "./trip-status.enum";
 
@@ -13,7 +13,7 @@ export interface TripData {
   driver: DriverData;
   passengers: PassengerData[];
   vehicle: VehicleData;
-  vibe: VehicleVibeData;
+  vibe: VehicleVibe;
   passenger_notes?: string;
 }
 
