@@ -1,9 +1,5 @@
 import { TripStatus } from "./trip-status.enum";
 import { Trip } from "./trip.interface";
-import { Client, Distance } from "@googlemaps/google-maps-services-js";
-import { Location } from "../common/interfaces/location.interface";
-
-const mapsClient = new Client({});
 
 /**
  * Data in memory.
@@ -67,39 +63,4 @@ export const update = async function (id: string, changes: Partial<Trip>): Promi
   trips[id] = { ...trips[id], ...changes };
 
   return trips[id];
-}
-
-/**
- * Estimate duration and distance between 2 locations.
- */
-export const estimateTravelLength = async function (start: Location, end: Location) {
-  const params = {
-    origins: [{
-      latitude: start.latitude,
-      longitude: start.longitude,
-    }],
-    destinations: [{
-      latitude: end.latitude,
-      longitude: end.longitude,
-    }],
-    key: process.env.GOOGLE_MAPS_API_KEY as string,
-  };
-
-  const { data } = await mapsClient.distancematrix({ params: params });
-
-  return data.rows[0].elements[0];
-}
-
-/**
- * Calculates fare range at $1 per km.
- * Returned values are in cents.
- */
-export const estimateFare = async function (distance: Distance) {
-  const kilometers = distance.value / 1000;
-  const fare = Math.floor(kilometers * 100);
-  
-  return {
-    low: fare - 500,
-    high: fare + 500
-  }
 }

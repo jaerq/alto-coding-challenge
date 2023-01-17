@@ -5,7 +5,7 @@ import * as VehicleVibeService from './vehicle-vibe.service';
 export const vehicleVibeRouter = express.Router();
 
 /**
- * GET v1/vibes
+ * GET /vibes
  */
 vehicleVibeRouter.get("/", async (req: Request, res: Response) => {
   try {
